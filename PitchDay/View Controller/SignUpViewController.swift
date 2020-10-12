@@ -72,5 +72,40 @@ class SignUpViewController: UIViewController {
 		footerLabel.text = footerLabelText
     }
     
+// MARK: - IBActions
+	
+	@IBAction func didTapSignUp(_ sender: Any) {
+		saveUser()
+		 navigationController?.popViewController(animated: true)
+	}
+	
+	
+	func saveUser() {
+		
+        guard let email = emailField.text, !email.isEmpty else {
+			print("emailField is empty")
+            return
+        }
+		
+		guard let password = passwordField.text, !password.isEmpty else {
+			print("passwordField is empty")
+            return
+        }
+		
+		let user = User(context: PersistenceController.container.viewContext)
+		
+		user.email = email
+		user.password = password
+		
+		print("Created user.")
+		didfinishCreatingUser(user)
+
+        navigationController?.popViewController(animated: true)
+    }
+	
+	func didfinishCreatingUser(_ user: User) {
+		PersistenceController.save(user)
+		print("User saved.")
+	}
 
 }

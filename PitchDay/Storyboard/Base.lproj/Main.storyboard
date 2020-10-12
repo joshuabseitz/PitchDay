@@ -10,7 +10,6 @@
         <!--LoginView-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController title="LoginView" id="BYZ-38-t0r" customClass="SignInViewController" customModule="PitchDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -82,6 +81,7 @@
                         <outlet property="signUpButton" destination="nis-ZA-5Sy" id="PWa-H8-dGo"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-749.27536231884062" y="-22.098214285714285"/>
         </scene>
@@ -99,6 +99,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="didTapSignUp:" destination="chV-AQ-7l4" eventType="touchUpInside" id="IBh-mR-77H"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2019 Logo - Novus Club White" translatesAutoresizingMaskIntoConstraints="NO" id="0J8-vm-w9b">
                                 <rect key="frame" x="112" y="244" width="190" height="44"/>
