@@ -15,9 +15,10 @@ class SignUpViewController: UIViewController {
 	// TODO: logo UIImageView
 	
 	// Sign Up Button
-	let loginButtonCornerRadius: CGFloat = 5.0
-	let loginButtonBorderColor = UIColor.white
-	let loginButtonBackgroundColor = UIColor.white
+	let signUpButtonCornerRadius: CGFloat = 5.0
+	let signUpButtonBorderColor = UIColor.white
+	let signUpButtonBackgroundColor = UIColor.white
+	let signUpButtonTitle = "Create an account"
 	
 	// Password Field
 	let passwordPlaceholder = NSAttributedString(string: "Password",
@@ -64,8 +65,9 @@ class SignUpViewController: UIViewController {
 		passwordField.leftView = passwordFieldPaddingView
 		passwordField.leftViewMode = .always
 		
-		signUpButton.backgroundColor = loginButtonBackgroundColor
-		signUpButton.layer.cornerRadius = loginButtonCornerRadius
+		signUpButton.backgroundColor = signUpButtonBackgroundColor
+		signUpButton.layer.cornerRadius = signUpButtonCornerRadius
+		signUpButton.setTitle(signUpButtonTitle, for: .normal)
 		
 		footerLabel.text = footerLabelText
     }

@@ -19,6 +19,7 @@ class SignInViewController: UIViewController {
 	let loginButtonCornerRadius: CGFloat = 5.0
 	let loginButtonBorderColor = UIColor.white
 	let loginButtonBackgroundColor = UIColor.white
+	let loginButtonTitle = "Sign In"
 	
 	// Password Field
 	let passwordPlaceholder = NSAttributedString(string: "Password",
@@ -70,6 +71,7 @@ class SignInViewController: UIViewController {
 		
 		loginButton.backgroundColor = loginButtonBackgroundColor
 		loginButton.layer.cornerRadius = loginButtonCornerRadius
+		loginButton.setTitle(loginButtonTitle, for: .normal)
 		
 		signUpButton.setTitle(signUpButtonText, for: .normal)
 		footerLabel.text = footerLabelText
