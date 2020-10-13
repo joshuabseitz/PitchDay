@@ -163,62 +163,86 @@ class SignUpViewController: UIViewController {
 // MARK: - IBActions
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
-		self.authenticate()
+		
+		if self.isTextValid() {
+			createUser()
+		} else {
+			print("Text in form is not valid")
+		}
+		
 		navigationController?.popViewController(animated: true)
 	}
 	
 
 // MARK: - FUNCTIONS
 	
-	func authenticate() {
+	func isTextValid() -> Bool {
+		return true
+		// TODO: Check if text is valid
+	}
+	
+	func createUser() {
+		
 		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
 			if error != nil {
 				print("The user was not created due to an error")
 			} else {
-				self.saveUser()
-				print("User has been successfully created")
+				let db = Firestore.firestore()
+				db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
+														  "lastName": self.lastNameField.text!,
+														  "companyName": self.companyNameField.text!])
+				{ (error) in
+					if error != nil {
+						print("User data could not be stored due to the following error. \(String(describing: error))")
+					}
+				}
+				print("User data stored.")
 			}
 		}
 	}
 	
+//	func storeUser(_ result: String) {
+//
+//	}
 	
-	func saveUser() {
-		
-        guard let email = emailField.text, !email.isEmpty else {
-			print("emailField is empty")
-            return
-        }
-		
-		guard let emailConfirmation = emailConfirmationField.text, !emailConfirmation.isEmpty else {
-			print("emailConfirmation is empty")
-            return
-        }
-		
-		guard let password = passwordField.text, !password.isEmpty else {
-			print("passwordField is empty")
-            return
-        }
-		
-		guard let firstName = firstNameField.text, !firstName.isEmpty else {
-			print("firstName is empty")
-            return
-        }
-		
-		guard let lastName = lastNameField.text, !lastName.isEmpty else {
-			print("lastName is empty")
-            return
-        }
-		
-		guard let companyName = companyNameField.text, !companyName.isEmpty else {
-			print("companyName is empty")
-            return
-        }
-		
-		let user = User(context: PersistenceController.container.viewContext)
-		user.email = email
-		
-		PersistenceController.save(user)
-        navigationController?.popViewController(animated: true)
-    }
+	
+//	func saveUser() {
+//
+//		guard let user.email = emailField.text, !email.isEmpty else {
+//			print("emailField is empty")
+//            return
+//        }
+//
+//		guard let emailConfirmation = emailConfirmationField.text, !emailConfirmation.isEmpty else {
+//			print("emailConfirmation is empty")
+//            return
+//        }
+//
+//		guard let password = passwordField.text, !password.isEmpty else {
+//			print("passwordField is empty")
+//            return
+//        }
+//
+//		guard let firstName = firstNameField.text, !firstName.isEmpty else {
+//			print("firstName is empty")
+//            return
+//        }
+//
+//		guard let lastName = lastNameField.text, !lastName.isEmpty else {
+//			print("lastName is empty")
+//            return
+//        }
+//
+//		guard let companyName = companyNameField.text, !companyName.isEmpty else {
+//			print("companyName is empty")
+//            return
+//        }
+//
+//		let user = User(context: PersistenceController.container.viewContext)
+//		user.email = email
+//
+//		PersistenceController.save(user)
+//        navigationController?.popViewController(animated: true)
+//    }
 
 }
