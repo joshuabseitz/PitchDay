@@ -11,6 +11,7 @@
 		570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF352534D4C200E1EE5A /* SignUpViewController.swift */; };
 		570BDF382534E31600E1EE5A /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 570BDF372534E31600E1EE5A /* PersistenceController.swift */; };
 		570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */; };
+		57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57399DFB253782F0009706DF /* PasswordResetViewController.swift */; };
 		5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4D92533E65400EDF51D /* AppDelegate.swift */; };
 		5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DB2533E65400EDF51D /* SceneDelegate.swift */; };
 		5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4DD2533E65400EDF51D /* SignInViewController.swift */; };
@@ -26,6 +27,7 @@
 		570BDF352534D4C200E1EE5A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		570BDF372534E31600E1EE5A /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		570BDF3B253500CC00E1EE5A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		57399DFB253782F0009706DF /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		5796F4D62533E65400EDF51D /* PitchDay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PitchDay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5796F4D92533E65400EDF51D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5796F4DB2533E65400EDF51D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				5796F4DD2533E65400EDF51D /* SignInViewController.swift */,
 				570BDF352534D4C200E1EE5A /* SignUpViewController.swift */,
+				57399DFB253782F0009706DF /* PasswordResetViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			files = (
 				570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */,
 				5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */,
+				57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */,
 				5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */,
 				5796F4DC2533E65400EDF51D /* SceneDelegate.swift in Sources */,
 				5796F4E42533E65400EDF51D /* User.xcdatamodeld in Sources */,

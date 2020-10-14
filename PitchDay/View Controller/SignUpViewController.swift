@@ -16,6 +16,9 @@ class SignUpViewController: UIViewController {
 	
 	// TODO: logo UIImageView
 	
+	// View Title
+	let viewTitle = "Create an Account"
+	
 	// Sign Up Button
 	let signUpButtonCornerRadius: CGFloat = 5.0
 	let signUpButtonBorderColor = UIColor.white
@@ -158,6 +161,8 @@ class SignUpViewController: UIViewController {
 		signUpButton.setTitle(signUpButtonTitle, for: .normal)
 
 		footerLabel.text = footerLabelText
+		
+		self.title = viewTitle
     }
     
 // MARK: - IBActions
@@ -220,7 +225,6 @@ class SignUpViewController: UIViewController {
 		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
 		
 		let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-			// Code in this block will trigger when OK button tapped.
 			print("Ok button tapped");
 			
 		}

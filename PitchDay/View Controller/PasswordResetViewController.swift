@@ -1,0 +1,63 @@
+//
+//  PasswordResetViewController.swift
+//  PitchDay
+//
+//  Created by Josh on 10/14/20.
+//  Copyright © 2020 Joshua Seitz. All rights reserved.
+//
+
+import UIKit
+
+class PasswordResetViewController: UIViewController {
+	
+	//MARK: - IBOutlets
+	@IBOutlet weak var emailField: UITextField!
+	@IBOutlet weak var resetButton: UIButton!
+	@IBOutlet weak var footerLabel: UILabel!
+	
+	//MARK: - Properties
+	
+	// View Title
+	let viewTitle = "Password Recovery"
+	
+	// Email Field Properties
+	let emailFieldPlaceholder = NSAttributedString(string: "Email Address",
+												  attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+	let emailFieldCornerRadius: CGFloat = 5.0
+	let emailFieldButtonBorderColor = UIColor.white.cgColor
+	let emailFieldBorderWidth: CGFloat = 0.75
+	let emailFieldPaddingView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 10))
+	
+	// Reset Button Properties
+	let resetButtonCornerRadius: CGFloat = 5.0
+	let resetButtonBorderColor = UIColor.white
+	let resetButtonTitle = "Send a reset link"
+	
+	// Footer Label Properties
+	let footerLabelText = "novusclub.org"
+	
+	//MARK: - View Lifecycles
+    override func viewDidLoad() {
+        super.viewDidLoad()
+		
+		// Email Field Setup
+		emailField.attributedPlaceholder = emailFieldPlaceholder
+		emailField.layer.borderColor = emailFieldButtonBorderColor
+		emailField.layer.borderWidth = emailFieldBorderWidth
+		emailField.layer.cornerRadius = emailFieldCornerRadius
+		emailField.leftView = emailFieldPaddingView
+		emailField.leftViewMode = .always
+
+		// Reset Button Setup
+		resetButton.backgroundColor = resetButtonBorderColor
+		resetButton.layer.cornerRadius = resetButtonCornerRadius
+		resetButton.setTitle(resetButtonTitle, for: .normal)
+
+		// Footer Label Setup
+		footerLabel.text = footerLabelText
+		
+		// Title (Nav Bar) Setup
+		self.title = viewTitle
+    }
+
+}
