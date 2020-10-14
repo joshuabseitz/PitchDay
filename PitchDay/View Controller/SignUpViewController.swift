@@ -164,48 +164,47 @@ class SignUpViewController: UIViewController {
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
 		
-		if self.isTextValid() {
+		if userInfoValid() && emailValid() && passwordValid() {
 			createUser()
 		} else {
-			print("Text in form is not valid")
+			displayAlertMessage(messageToDisplay: "Please verify that you filled out each field correctly.")
 		}
-		
-		navigationController?.popViewController(animated: true)
 	}
 	
 
 // MARK: - FUNCTIONS
 	
-	func isTextValid() -> Bool {
-		return true
-		// TODO: Check if text is valid
-	}
-	
 	func createUser() {
 		
-		if userInfoValid() && emailValid() && passwordValid() {
+		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
+			if error != nil {
+				self.displayAlertMessage(messageToDisplay: "There was an error. Please contact info@novusclub.org for help.")
+				print("The user was not created due to an error")
+			} else {
+				let db = Firestore.firestore()
+				db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
+														  "lastName": self.lastNameField.text!,
+														  "companyName": self.companyNameField.text!])
+				{ (error) in
+					if error != nil {
+						print("User data could not be stored due to the following error. \(String(describing: error))")
+				}}
+				print("User data stored.")
+				self.displaySignUpSuccessMessage(messageToDisplay: "Thanks for signing up! Please sign in and verify your email, when you get a chance.")
+		}}
+	}
+	
+	func displaySignUpSuccessMessage(messageToDisplay: String){
+		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+		
+		let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+			self.navigationController?.popViewController(animated: true)
+			print("Ok button tapped");
 			
-			Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
-				if error != nil {
-					print("The user was not created due to an error")
-				} else {
-					let db = Firestore.firestore()
-					db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
-															  "lastName": self.lastNameField.text!,
-															  "companyName": self.companyNameField.text!])
-					{ (error) in
-						if error != nil {
-							print("User data could not be stored due to the following error. \(String(describing: error))")
-					}}
-					
-//					displayAlertMessage(messageToDisplay: "Thanks for signing up, \(self.firstNameField.text!)! Please sign in and verify your email, when you get a chance.")
-					print("User data stored.")
-			}}
-			
-		} else {
-			displayAlertMessage(messageToDisplay: "Please verify that you filled out all fields appropriately.")
 		}
 		
+		alertController.addAction(OKAction)
+		self.present(alertController, animated: true, completion:nil)
 	}
 	
 	func textFieldEmpty(textField: UITextField) -> Bool {
@@ -290,11 +289,9 @@ class SignUpViewController: UIViewController {
 			let email1 = emailField.text
 			let email2 = emailConfirmationField.text
 			
-			if email1 == email2 {
-			
-				let isEmailAddressValid = isValidEmailAddress(emailAddressString: email1!)
+			if ((email1!.elementsEqual(email2!)) == true) {
 				
-				if isEmailAddressValid
+				if isValidEmailAddress(emailAddressString: email1!)
 				{
 					print("Email address is valid")
 					returnValue = true
@@ -322,7 +319,7 @@ class SignUpViewController: UIViewController {
 	func isValidEmailAddress(emailAddressString: String) -> Bool {
 		   
 		   var returnValue = true
-		   let emailRegEx = "[A-Z0-9a-z.-_]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,3}"
+		   let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
 		   
 		   do {
 			   let regex = try NSRegularExpression(pattern: emailRegEx)
