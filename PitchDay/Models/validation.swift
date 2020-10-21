@@ -8,7 +8,24 @@
 
 import Foundation
 
-extension SignUpViewController: SignUpViewControllerDelegate {
+extension SignUpViewController: SignUpViewControllerValidationDelegate {
+	
+	//MARK: - User Info Validation
+	
+	func userInfoValid() -> Bool {
+		
+		var returnValue: Bool
+		
+		if !textFieldEmpty(textField: firstNameField) && !textFieldEmpty(textField: lastNameField) && !textFieldEmpty(textField: companyNameField){
+			returnValue = true
+		} else {
+			print("firstNameField, lastNameField, and/or companyNameField is missing")
+			displayAlertMessage(messageToDisplay: "Please ensure that you have filled out every field.")
+			returnValue = false
+		}
+		
+		return returnValue
+	}
 	
 	//MARK: - Password Validation
 	

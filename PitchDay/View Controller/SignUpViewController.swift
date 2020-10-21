@@ -10,9 +10,17 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-protocol SignUpViewControllerDelegate: class {
+
+// MARK: - Protocols
+
+protocol SignUpViewControllerValidationDelegate: class {
 	func emailValid(_ email1: String, _ email2: String) -> Bool
 	func passwordValid() -> Bool
+	func userInfoValid() -> Bool
+}
+
+protocol SignUpViewControllerAuthenticationDelegate: class {
+	
 }
 
 class SignUpViewController: UIViewController {
@@ -96,7 +104,8 @@ class SignUpViewController: UIViewController {
 	let footerLabelText = "novusclub.org"
 	
 // MARK: - Delgates
-	weak var validDelagate: SignUpViewControllerDelegate?
+	weak var validDelagate: SignUpViewControllerValidationDelegate?
+	weak var authDelegate: SignUpViewControllerAuthenticationDelegate?
 	
 // MARK: - IBOutlets
 	@IBOutlet weak var firstNameField: UITextField!
@@ -187,36 +196,6 @@ class SignUpViewController: UIViewController {
 
 // MARK: - FUNCTIONS
 	
-	func createUser() {
-		
-		Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { authResult, error in
-			if error != nil {
-				self.displayAlertMessage(messageToDisplay: "There was an error. Please contact info@novusclub.org for help. Error message: \(String(describing: error))")
-				print("The user was not created due to an error")
-			} else {
-				
-				// Storing User Information (firstName, lastName, companyName)
-				let db = Firestore.firestore()
-				db.collection("users").addDocument(data: ["firstName": self.firstNameField.text!,
-														  "lastName": self.lastNameField.text!,
-														  "companyName": self.companyNameField.text!])
-				{ (error) in
-					if error != nil {
-						print("User data could not be stored due to the following error. \(String(describing: error))")
-						
-				// Sending email verification
-				Auth.auth().currentUser?.sendEmailVerification { error in
-					if error != nil {
-						
-					}
-				}
-						
-				}}
-				print("User data stored.")
-				self.displaySignUpSuccessMessage(messageToDisplay: "Thanks for signing up! Please sign in and verify your email, when you get a chance.")
-		}}
-	}
-	
 	func displaySignUpSuccessMessage(messageToDisplay: String){
 		let alertController = UIAlertController(title: "Done", message: messageToDisplay, preferredStyle: .alert)
 		
@@ -249,21 +228,6 @@ class SignUpViewController: UIViewController {
 		
 		alertController.addAction(OKAction)
 		self.present(alertController, animated: true, completion:nil)
-	}
-	
-	func userInfoValid() -> Bool {
-		
-		var returnValue: Bool
-		
-		if !textFieldEmpty(textField: firstNameField) && !textFieldEmpty(textField: lastNameField) && !textFieldEmpty(textField: companyNameField){
-			returnValue = true
-		} else {
-			print("firstNameField, lastNameField, and/or companyNameField is missing")
-			displayAlertMessage(messageToDisplay: "Please ensure that you have filled out every field.")
-			returnValue = false
-		}
-		
-		return returnValue
 	}
 
 }
