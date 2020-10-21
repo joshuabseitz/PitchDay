@@ -12,6 +12,7 @@ import FirebaseAuth
 
 protocol SignUpViewControllerDelegate: class {
 	func emailValid(_ email1: String, _ email2: String) -> Bool
+	func passwordValid() -> Bool
 }
 
 class SignUpViewController: UIViewController {
@@ -217,7 +218,7 @@ class SignUpViewController: UIViewController {
 	}
 	
 	func displaySignUpSuccessMessage(messageToDisplay: String){
-		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+		let alertController = UIAlertController(title: "Done", message: messageToDisplay, preferredStyle: .alert)
 		
 		let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
 			self.navigationController?.popViewController(animated: true)
@@ -250,37 +251,8 @@ class SignUpViewController: UIViewController {
 		self.present(alertController, animated: true, completion:nil)
 	}
 	
-	func passwordValid() -> Bool {
-		
-		let passwordStandard = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[A-Z].*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8}$")
-		
-		if !textFieldEmpty(textField: passwordField) && !textFieldEmpty(textField: passwordConfirmationField) {
-			
-			let password1 = passwordField.text
-			let password2 = passwordConfirmationField.text
-			
-			if password1 == password2 {
-				
-				if passwordStandard.evaluate(with: password1) {
-					return true
-				} else {
-					print("Password is not strong enough")
-					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
-					return false
-				}
-			} else {
-				print("Passwords do not match")
-				displayAlertMessage(messageToDisplay: "Password fields do not match.")
-				return false
-			}
-		} else {
-			print("Password fields are empty.")
-			displayAlertMessage(messageToDisplay: "Please fill out the password fields.")
-			return false
-		}
-	}
-	
 	func userInfoValid() -> Bool {
+		
 		var returnValue: Bool
 		
 		if !textFieldEmpty(textField: firstNameField) && !textFieldEmpty(textField: lastNameField) && !textFieldEmpty(textField: companyNameField){
@@ -293,13 +265,6 @@ class SignUpViewController: UIViewController {
 		
 		return returnValue
 	}
-	
-	func saveUser() {
-		let user = User(context: PersistenceController.container.viewContext)
-
-		PersistenceController.save(user)
-		navigationController?.popViewController(animated: true)
-    }
 
 }
 
