@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignInViewController: UIViewController {
 	
@@ -80,42 +81,36 @@ class SignInViewController: UIViewController {
 	
 	// MARK - IBAction
 	
-//	@IBAction func didTapLogin(_ sender: Any) {
-//
-//		if CustomTextField.textFieldEmpty(textField: passwordField) || CustomTextField.textFieldEmpty(textField: emailField) {
-//
-//			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
-//
-//		} else {
-//
-//			let signInUser: NewUser = 	NewUser(email: emailField.text!,
-//											password: passwordField.text!)
-//
-//			if !signInUser.isEmailValid() {
-//				displayAlertMessage(messageToDisplay: "Please enter a valid email.")
-//				
-//			} else {
-//				
-//				if (UserAuth.userSignIn(signInUser)) {
-//					
-//					// ...
-//					
-//				} else {
-//					
-//					print("Email and password match not found")
-//					displayAlertMessage(messageToDisplay: "We could not find an account associated with that email and password combination.")
-//					
-//				}
-//				
-//			}
-//
-//		}
-//
-//	}
-	
-	@IBAction func didTapSignUp(_ sender: Any) {
-		performSegue(withIdentifier: "signUp", sender: sender)
+	@IBAction func didTapLogin(_ sender: UIButton) {
+		if CustomTextField.textFieldEmpty(textField: passwordField) || CustomTextField.textFieldEmpty(textField: emailField) {
+			
+			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
+			
+		} else {
+			
+			let signInUser: NewUser = 	NewUser(email: emailField.text!,
+												  password: passwordField.text!)
+			
+			if !signInUser.isEmailValid() {
+				
+				displayAlertMessage(messageToDisplay: "Please enter a valid email.")
+				
+			} else {
+				
+				Auth.auth().signIn(withEmail: signInUser.email, password: signInUser.password) { authResult, error in
+					
+					if error != nil {
+						print("Couldn't sign the user in: \(String(describing: error))")
+						self.displayAlertMessage(messageToDisplay: "There was an error signing you in: \(String(describing: error))")
+					} else {
+						print("Successfully signed in the user.")
+						self.displayAlertMessage(messageToDisplay: "You're logged in.")
+					}
+				}
+			}
+		}
 	}
+	
 	
 	func displayAlertMessage(messageToDisplay: String){
 		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)

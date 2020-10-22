@@ -22,7 +22,6 @@ struct UserAuth {
 			
 			if error != nil {
 				print("There was an error. Please contact info@novusclub.org for help. Error message: \(String(describing: error))")
-				returnValue = false
 			} else {
 				
 				returnValue = true
@@ -45,10 +44,25 @@ struct UserAuth {
 		
 	}
 	
-	//MARK: - Sign in user
-	static func signInUser(_ signInUser: NewUser) {
-		
-	}
+//	//MARK: - Sign in user
+//	static func signInUser(_ signInUser: NewUser) -> Bool {
+//
+//		var returnValue: Bool = true
+//
+//		Auth.auth().signIn(withEmail: signInUser.email, password: signInUser.password) { authResult, error in
+//
+//			if error != nil {
+//				print("Couldn't sign the user in: \(String(describing: error))")
+//				returnValue = false
+//			} else {
+//				print("Successfully signed in the user.")
+//			}
+//
+//		}
+//
+//		return returnValue
+//
+//	}
 	
 	//MARK: - Password Reset
 	static func resetPassword(_ resetUser: NewUser) {
