@@ -203,7 +203,7 @@ class SignUpViewController: UIViewController {
 					if UserAuth.createUser(newUser) {
 						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
 					} else {
-						displayAlertMessage(messageToDisplay: "We could not create you account – please contact info@novusclub.org for help.")
+						displayAlertMessage(messageToDisplay: "We could not create your account – please try using a different email address or contacting info@novusclub.org if issues persist.")
 					}
 				}
 				
@@ -260,15 +260,6 @@ class SignUpViewController: UIViewController {
 		}
 		return false
 	}
-	
-//	func textFieldEmpty(textField: CustomTextField) -> Bool {
-//		guard let text = textField.text,
-//			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-//				return true
-//		}
-//
-//		return false
-//	}
 	
 	func displaySignUpSuccessMessage(messageToDisplay: String){
 		let alertController = UIAlertController(title: "Done", message: messageToDisplay, preferredStyle: .alert)

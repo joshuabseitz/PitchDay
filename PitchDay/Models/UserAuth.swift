@@ -22,6 +22,7 @@ struct UserAuth {
 			
 			if error != nil {
 				print("There was an error. Please contact info@novusclub.org for help. Error message: \(String(describing: error))")
+				returnValue = false
 			} else {
 				
 				returnValue = true
@@ -41,6 +42,11 @@ struct UserAuth {
 			}}
 		
 		return returnValue
+		
+	}
+	
+	//MARK: - Sign in user
+	static func signInUser(_ signInUser: NewUser) {
 		
 	}
 	

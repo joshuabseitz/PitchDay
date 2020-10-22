@@ -44,8 +44,8 @@ class SignInViewController: UIViewController {
 	let footerLabelText = "novusclub.org"
 	
 	//	MARK: - IBOUTLETS
-	@IBOutlet weak var emailField: UITextField!
-	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var emailField: CustomTextField!
+	@IBOutlet weak var passwordField: CustomTextField!
 	@IBOutlet weak var loginButton: UIButton!
 	@IBOutlet weak var logo: UIImageView!
 	@IBOutlet weak var footerLabel: UILabel!
@@ -81,39 +81,52 @@ class SignInViewController: UIViewController {
 	// MARK - IBAction
 	
 //	@IBAction func didTapLogin(_ sender: Any) {
-//		
-//		if emptyFields() {
-//			
+//
+//		if CustomTextField.textFieldEmpty(textField: passwordField) || CustomTextField.textFieldEmpty(textField: emailField) {
+//
 //			displayAlertMessage(messageToDisplay: "Please make sure you have filled out all fields.")
-//			
+//
 //		} else {
-//			
-//			let newUser: NewUser = 	NewUser(email: emailField.text!,
+//
+//			let signInUser: NewUser = 	NewUser(email: emailField.text!,
 //											password: passwordField.text!)
-//			
-//			if passwordFieldsMatch() {
+//
+//			if !signInUser.isEmailValid() {
+//				displayAlertMessage(messageToDisplay: "Please enter a valid email.")
 //				
-//				if !newUser.isEmailValid() {
-//					displayAlertMessage(messageToDisplay: "Please enter a valid email.")
-//				} else if !newUser.isPasswordValid() {
-//					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
+//			} else {
+//				
+//				if (UserAuth.userSignIn(signInUser)) {
+//					
+//					// ...
+//					
 //				} else {
 //					
-//					if UserAuth.createUser(newUser) {
-//						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
-//					} else {
-//						displayAlertMessage(messageToDisplay: "We could not create you account – please contact info@novusclub.org for help.")
-//					}
+//					print("Email and password match not found")
+//					displayAlertMessage(messageToDisplay: "We could not find an account associated with that email and password combination.")
+//					
 //				}
 //				
 //			}
-//			
+//
 //		}
-//		
+//
 //	}
 	
 	@IBAction func didTapSignUp(_ sender: Any) {
 		performSegue(withIdentifier: "signUp", sender: sender)
+	}
+	
+	func displayAlertMessage(messageToDisplay: String){
+		let alertController = UIAlertController(title: "Alert", message: messageToDisplay, preferredStyle: .alert)
+		
+		let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+			print("Ok button tapped");
+			
+		}
+		
+		alertController.addAction(OKAction)
+		self.present(alertController, animated: true, completion:nil)
 	}
 	
 }
