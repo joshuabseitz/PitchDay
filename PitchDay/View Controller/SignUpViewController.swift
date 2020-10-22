@@ -13,16 +13,6 @@ import FirebaseAuth
 
 // MARK: - Protocols
 
-protocol SignUpViewControllerValidationDelegate: class {
-	//	func emailValid(_ email1: String, _ email2: String) -> Bool
-	func passwordValid() -> Bool
-	func userInfoValid() -> Bool
-}
-
-protocol SignUpViewControllerAuthenticationDelegate: class {
-	func createUser()
-}
-
 class SignUpViewController: UIViewController {
 	
 	// MARK: - Properties
@@ -102,10 +92,6 @@ class SignUpViewController: UIViewController {
 	
 	// Footer Label
 	let footerLabelText = "novusclub.org"
-	
-	// MARK: - Delegates
-	weak var validDelagate: SignUpViewControllerValidationDelegate?
-	weak var authDelegate: SignUpViewControllerAuthenticationDelegate?
 	
 	// MARK: - Custom Styling
 	var customTextField = CustomTextField()
@@ -214,7 +200,11 @@ class SignUpViewController: UIViewController {
 				} else if !newUser.isPasswordValid() {
 					displayAlertMessage(messageToDisplay: "Please ensure that your password has at least 2 uppercase letters, 3 lowercase letters, 2 digits, and 1 special character.")
 				} else {
-					createUser()
+					if UserAuth.createUser(newUser) {
+						displaySignUpSuccessMessage(messageToDisplay: "Success! Thank for signing up – please sign in now.")
+					} else {
+						displayAlertMessage(messageToDisplay: "We could not create you account – please contact info@novusclub.org for help.")
+					}
 				}
 				
 			}
