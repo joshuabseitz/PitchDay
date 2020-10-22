@@ -25,4 +25,13 @@ class CustomTextField: UITextField {
 		layer.cornerRadius = 5.0
 	}
 	
+	static func textFieldEmpty(textField: CustomTextField) -> Bool {
+		guard let text = textField.text,
+			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+				return true
+		}
+		
+		return false
+	}
+	
 }

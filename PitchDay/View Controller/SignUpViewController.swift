@@ -253,7 +253,7 @@ class SignUpViewController: UIViewController {
 																		  (name: "Password confirmation", value: passwordConfirmationField)]
 		
 		for (name, value) in signUpFields {
-			if textFieldEmpty(textField: value) {
+			if CustomTextField.textFieldEmpty(textField: value) {
 				print("\(name) is empty.")
 				return true
 			}
@@ -261,14 +261,14 @@ class SignUpViewController: UIViewController {
 		return false
 	}
 	
-	func textFieldEmpty(textField: CustomTextField) -> Bool {
-		guard let text = textField.text,
-			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
-				return true
-		}
-		
-		return false
-	}
+//	func textFieldEmpty(textField: CustomTextField) -> Bool {
+//		guard let text = textField.text,
+//			!text.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).isEmpty else {
+//				return true
+//		}
+//
+//		return false
+//	}
 	
 	func displaySignUpSuccessMessage(messageToDisplay: String){
 		let alertController = UIAlertController(title: "Done", message: messageToDisplay, preferredStyle: .alert)

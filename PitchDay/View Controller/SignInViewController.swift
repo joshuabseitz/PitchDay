@@ -88,11 +88,8 @@ class SignInViewController: UIViewController {
 //			
 //		} else {
 //			
-//			let newUser: NewUser = 	NewUser(fName: firstNameField.text!,
-//											   lName: lastNameField.text!,
-//											   companyName: companyNameField.text!,
-//											   email: emailField.text!,
-//											   password: passwordField.text!)
+//			let newUser: NewUser = 	NewUser(email: emailField.text!,
+//											password: passwordField.text!)
 //			
 //			if passwordFieldsMatch() {
 //				
