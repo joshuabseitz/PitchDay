@@ -11,6 +11,9 @@ import UIKit
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
 	@IBOutlet weak var startupTableview: UITableView!
+	@IBOutlet weak var navBar: UINavigationItem!
+	
+	
 	
 	let data: [(startupName: String, startupMembers: [String])] = [(startupName: "Johnson and Johnson", startupMembers: ["James Jackson", "Max Friedman"]),
 																   (startupName: "Superman", startupMembers: ["Lex Luthor", "Clark Kent"]),
@@ -23,10 +26,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		navigationController?.setNavigationBarHidden(true, animated: true)
+//		navigationController?.setNavigationBarHidden(true, animated: true)
+		navigationItem.setHidesBackButton(true, animated: true)
+		title = "Student Entries"
 		self.startupTableview.dataSource = self
 		self.startupTableview.delegate = self
-		
 		self.registerTableViewCells()
 	}
 	
