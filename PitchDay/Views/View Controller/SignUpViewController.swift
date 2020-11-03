@@ -118,8 +118,6 @@ class SignUpViewController: UIViewController {
 		footerLabel.text = footerLabelText
 		
 		self.title = viewTitle
-		
-		navigationController?.setNavigationBarHidden(true, animated: true)
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {

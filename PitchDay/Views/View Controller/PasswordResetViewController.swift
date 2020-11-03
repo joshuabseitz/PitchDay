@@ -65,8 +65,6 @@ class PasswordResetViewController: UIViewController {
 		// Title (Nav Bar) Setup
 		self.title = viewTitle
 		
-		navigationController?.setNavigationBarHidden(true, animated: true)
-		
 	}
 	
 	override var preferredStatusBarStyle: UIStatusBarStyle {

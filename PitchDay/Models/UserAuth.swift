@@ -38,7 +38,8 @@ struct UserAuth {
 				
 				print("User data stored.")
 				
-			}}
+			}
+		}
 		
 		return returnValue
 		
