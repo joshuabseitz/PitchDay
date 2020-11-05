@@ -14,8 +14,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	@IBOutlet weak var startupTableview: UITableView!
 	@IBOutlet weak var navBar: UINavigationItem!
 	
-	
-	
 	let data: [(startupName: String, startupMembers: [String])] = [(startupName: "Johnson and Johnson", startupMembers: ["James Jackson", "Max Friedman"]),
 																   (startupName: "Superman", startupMembers: ["Lex Luthor", "Clark Kent"]),
 																   (startupName: "Tigerbelly", startupMembers: ["Bobby Lee", "Khalyla Kuhn"]),

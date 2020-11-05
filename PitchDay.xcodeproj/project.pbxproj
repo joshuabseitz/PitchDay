@@ -128,8 +128,8 @@
 				5796F4DD2533E65400EDF51D /* SignInViewController.swift */,
 				570BDF352534D4C200E1EE5A /* SignUpViewController.swift */,
 				57399DFB253782F0009706DF /* PasswordResetViewController.swift */,
-				578C4D8C25435C0300DD5C11 /* HomeViewController.swift */,
 				576BA3C32550F2E5001CB06C /* JudgeViewController.swift */,
+				578C4D8C25435C0300DD5C11 /* HomeViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
