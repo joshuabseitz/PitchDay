@@ -291,7 +291,7 @@
         <!--Judge View Controller-->
         <scene sceneID="Y3r-rI-7nh">
             <objects>
-                <viewController id="Z4Z-P0-Omw" customClass="JudgeViewController" customModule="PitchDay" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="judge" id="Z4Z-P0-Omw" customClass="JudgeViewController" customModule="PitchDay" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ic8-c5-2HK" customClass="Judge">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

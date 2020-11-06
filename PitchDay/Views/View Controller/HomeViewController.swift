@@ -66,4 +66,13 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		return UITableViewCell()
 	}
 	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let judgeViewController = storyboard?.instantiateViewController(identifier: "judge") as! JudgeViewController
+		judgeViewController.startupName = data[indexPath.row].startupName
+        navigationController?.pushViewController(judgeViewController, animated: true)
+    }
+	
 }

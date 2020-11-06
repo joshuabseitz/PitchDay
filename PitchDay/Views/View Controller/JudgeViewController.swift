@@ -10,6 +10,8 @@ import UIKit
 
 class JudgeViewController: UIViewController {
 	
+	var startupName: String = ""
+	
 	let rubricQuestions = [(id: "Problem", text: "This startup is solving a real problem."),
 						   (id: "Solution", text: "I would invest in this startup's solution."),
 						   (id: "MVP", text: "This startup team demoed a high quality MVP."),
@@ -17,7 +19,7 @@ class JudgeViewController: UIViewController {
 	
 	var questionCount = 0
 	
-	var rubricTracker: [(questionID: String, score: Int)]
+	var rubricTracker: [(questionID: String, score: Int)] = []
 	
 
 	@IBOutlet weak var question: UITextView!
@@ -34,6 +36,7 @@ class JudgeViewController: UIViewController {
 	override func viewDidLoad() {
         super.viewDidLoad()
 		question.text = rubricQuestions[questionCount].text
+		title = startupName
 	}
 	
 	@IBAction func didTapScore(_ sender: UIButton) {
