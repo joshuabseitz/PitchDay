@@ -17,34 +17,37 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-7I-atv">
-                        <rect key="frame" x="247" y="30" width="53" height="30"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <rect key="frame" x="240" y="30" width="64" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <state key="normal" title="View/Edit"/>
                     </button>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-PZ-SOC">
-                        <rect key="frame" x="16" y="26" width="69" height="21"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-Lb-hfs">
+                        <rect key="frame" x="155.5" y="36" width="9.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 4/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-Lb-hfs">
-                        <rect key="frame" x="16" y="51" width="55" height="13"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-PZ-SOC">
+                        <rect key="frame" x="16" y="35" width="78.5" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="OA9-7I-atv" secondAttribute="trailing" constant="20" id="20g-3k-SaR"/>
-                    <constraint firstItem="OA9-7I-atv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="7ht-su-qdx"/>
-                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="4" id="Eg9-R3-3hH"/>
-                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="LNo-pf-I1F"/>
-                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ekk-hG-S6M"/>
-                    <constraint firstAttribute="bottom" secondItem="OA9-7I-atv" secondAttribute="bottom" constant="31" id="iNV-ke-scY"/>
-                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nnG-hj-1RJ"/>
-                    <constraint firstAttribute="bottom" secondItem="IKv-Lb-hfs" secondAttribute="bottom" constant="27" id="qyk-0R-FvK"/>
+                    <constraint firstItem="OA9-7I-atv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="0t5-l0-NUH"/>
+                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="36" id="25s-kf-agM"/>
+                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="93D-GC-FQT"/>
+                    <constraint firstAttribute="trailing" secondItem="OA9-7I-atv" secondAttribute="trailing" constant="16" id="Stz-SS-5jR"/>
+                    <constraint firstAttribute="bottom" secondItem="IKv-Lb-hfs" secondAttribute="bottom" constant="37" id="Xai-wg-SMP"/>
+                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="35" id="ffK-vv-ujm"/>
+                    <constraint firstAttribute="bottom" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="35" id="jsw-Lz-GRa"/>
+                    <constraint firstAttribute="bottom" secondItem="OA9-7I-atv" secondAttribute="bottom" constant="31" id="m5o-PV-Ca4"/>
                 </constraints>
             </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="IKv-Lb-hfs" firstAttribute="centerX" secondItem="njF-e1-oar" secondAttribute="centerX" id="Osn-46-NoD"/>
+            </constraints>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="scoreCategoryLabel" destination="VLg-PZ-SOC" id="I2e-QG-i99"/>
