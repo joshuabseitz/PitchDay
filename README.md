@@ -6,6 +6,8 @@ This app has not been fully built and currently has the following issues:
 - User registration <i>always</i> sends a failure alert, whether or not it has been successful
 - Access to student entires is given to anyone with an account, should be based on access-level (e.g. admin, educator)
 - Scoring screends have not been implemented
+- Firebase database is not secure
+- UI elements do not have constraints and view is only optimized for iPhone 11 Pro Max
 
 ## Text Validation 🔎
 
