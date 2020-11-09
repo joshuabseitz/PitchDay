@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="91" id="KGk-i7-Jjw" customClass="ScoreTableViewCell" customModule="PitchDay" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OA9-7I-atv">
+                        <rect key="frame" x="247" y="30" width="53" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <state key="normal" title="View/Edit"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Problem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLg-PZ-SOC">
+                        <rect key="frame" x="16" y="26" width="69" height="21"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score: 4/4" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKv-Lb-hfs">
+                        <rect key="frame" x="16" y="51" width="55" height="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="OA9-7I-atv" secondAttribute="trailing" constant="20" id="20g-3k-SaR"/>
+                    <constraint firstItem="OA9-7I-atv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="7ht-su-qdx"/>
+                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="top" secondItem="VLg-PZ-SOC" secondAttribute="bottom" constant="4" id="Eg9-R3-3hH"/>
+                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="26" id="LNo-pf-I1F"/>
+                    <constraint firstItem="VLg-PZ-SOC" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ekk-hG-S6M"/>
+                    <constraint firstAttribute="bottom" secondItem="OA9-7I-atv" secondAttribute="bottom" constant="31" id="iNV-ke-scY"/>
+                    <constraint firstItem="IKv-Lb-hfs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="nnG-hj-1RJ"/>
+                    <constraint firstAttribute="bottom" secondItem="IKv-Lb-hfs" secondAttribute="bottom" constant="27" id="qyk-0R-FvK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="scoreCategoryLabel" destination="VLg-PZ-SOC" id="I2e-QG-i99"/>
+                <outlet property="scoreValueLabel" destination="IKv-Lb-hfs" id="ygm-fh-VCx"/>
+            </connections>
+            <point key="canvasLocation" x="131.8840579710145" y="136.27232142857142"/>
+        </tableViewCell>
+    </objects>
+</document>

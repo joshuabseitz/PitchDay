@@ -27,6 +27,9 @@
 		5796F4E42533E65400EDF51D /* User.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5796F4E22533E65400EDF51D /* User.xcdatamodeld */; };
 		5796F4E62533E65600EDF51D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5796F4E52533E65600EDF51D /* Assets.xcassets */; };
 		5796F4E92533E65600EDF51D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5796F4E72533E65600EDF51D /* LaunchScreen.storyboard */; };
+		57D9F2092559BE6F00005DED /* ScoreTableviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D9F2072559BE6F00005DED /* ScoreTableviewCell.swift */; };
+		57D9F20A2559BE6F00005DED /* ScoreTableviewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57D9F2082559BE6F00005DED /* ScoreTableviewCell.xib */; };
+		57EDC87E2559C93300B0D205 /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57EDC87D2559C93300B0D205 /* ScoreViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +56,9 @@
 		5796F4E52533E65600EDF51D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5796F4E82533E65600EDF51D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5796F4EA2533E65600EDF51D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		57D9F2072559BE6F00005DED /* ScoreTableviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTableviewCell.swift; sourceTree = "<group>"; };
+		57D9F2082559BE6F00005DED /* ScoreTableviewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreTableviewCell.xib; sourceTree = "<group>"; };
+		57EDC87D2559C93300B0D205 /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
 		5FBFF22E4B7950EB441551F6 /* Pods-PitchDay.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PitchDay.debug.xcconfig"; path = "Target Support Files/Pods-PitchDay/Pods-PitchDay.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -75,6 +81,8 @@
 				5796F4F62534C07C00EDF51D /* Storyboard */,
 				576BA3BF25508040001CB06C /* StudentEntryTableViewCell.swift */,
 				576BA3C025508040001CB06C /* StudentEntryTableViewCell.xib */,
+				57D9F2072559BE6F00005DED /* ScoreTableviewCell.swift */,
+				57D9F2082559BE6F00005DED /* ScoreTableviewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +138,7 @@
 				57399DFB253782F0009706DF /* PasswordResetViewController.swift */,
 				576BA3C32550F2E5001CB06C /* JudgeViewController.swift */,
 				578C4D8C25435C0300DD5C11 /* HomeViewController.swift */,
+				57EDC87D2559C93300B0D205 /* ScoreViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -228,6 +237,7 @@
 				570BDF3C253500CC00E1EE5A /* GoogleService-Info.plist in Resources */,
 				5796F4E62533E65600EDF51D /* Assets.xcassets in Resources */,
 				5796F4E12533E65400EDF51D /* Main.storyboard in Resources */,
+				57D9F20A2559BE6F00005DED /* ScoreTableviewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +292,8 @@
 			files = (
 				570BDF362534D4C200E1EE5A /* SignUpViewController.swift in Sources */,
 				5796F4DE2533E65400EDF51D /* SignInViewController.swift in Sources */,
+				57EDC87E2559C93300B0D205 /* ScoreViewController.swift in Sources */,
+				57D9F2092559BE6F00005DED /* ScoreTableviewCell.swift in Sources */,
 				57399DFC253782F0009706DF /* PasswordResetViewController.swift in Sources */,
 				5796F4DA2533E65400EDF51D /* AppDelegate.swift in Sources */,
 				576BA3C42550F2E5001CB06C /* JudgeViewController.swift in Sources */,

@@ -54,13 +54,18 @@ class JudgeViewController: UIViewController {
 		questionCount += 1
 		
 		if questionCount >= rubricQuestions.count {
+			
 			print("Judge has answered all rubric questions.")
+			
 			for button in allScoreButtons {
 				button.isHidden = true
 			}
 			
 			nextButton.setTitle("Submit", for: .normal)
 			nextButton.isHidden = false
+			
+			question.text = "You have entered all scores for this entry."
+			
 		} else {
 			question.text = rubricQuestions[questionCount].text
 			nextButton.isHidden = true

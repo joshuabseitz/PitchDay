@@ -70,9 +70,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 		
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let judgeViewController = storyboard?.instantiateViewController(identifier: "judge") as! JudgeViewController
-		judgeViewController.startupName = data[indexPath.row].startupName
-        navigationController?.pushViewController(judgeViewController, animated: true)
+        let scoreViewController = storyboard?.instantiateViewController(identifier: "Score") as! ScoreViewController
+//		scoreViewController.startupName = data[indexPath.row].startupName
+        navigationController?.pushViewController(scoreViewController, animated: true)
     }
 	
 }
